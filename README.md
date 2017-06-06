@@ -20,6 +20,8 @@ vasim -Ox --enforce-fanin 8 --blif example.anml
 ## Spatial Automata Architecture Description
 Most of the difficulty of this project was learning VPR's architecture description format, and building a file that would approximate the Micron D480 Automata Processor. Please refer to the VTR/VPR GitHub or mailing lists for architecture description definition questions.
 
+Note that architectures and .blif files must be co-designed. You may need to modify VASim, or build your own .blif generation tool to be useful with your own architecture.
+
 ## TODO
 Automata-to-Routing left many interesting questions unanswered. If you are a researcher interested in augmenting ATR or evaluating your own spatial automata processing architecture. This tool is for you!
 
