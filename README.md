@@ -23,3 +23,5 @@ Automata-to-Routing left many interesting questions unanswered. If you are a res
 - Add functionality for .blif emission and architecture support for boolean logic and counter elements available in the ANML specification.
 - Experiment with VPR command line parameters to get closer to the performance of Micron's compiler.
 
+## LICENSE
+The license of the architecture description file and script is BSD 3-clause. Because each .blif file is derived from an ANML file in the ANMLZoo benchmark suite. Each .blif file retains the license available in each benchmark directory at https://github.com/jackwadden/ANMLZoo. Note that the ANMLZoo benchmark suite is subject to change. These files are only kept to support those attempting to compare to the original FCCM paper without the need for VASim, and are not meant to be updated as ANMLZoo evolves.
