@@ -6,12 +6,16 @@ ATR is run by running vpr using an automata circuit file on a valid spatial auto
 
 A simple example using the current mandatory flags is shown below:  
 
+```
 vpr --allow_unrelated_clustering off --sweep_dangling_blocks off --timing analysis off d480.xml example.blif
+```
 
 ## Blif Emission
 VASim is capable of generating .blif files from ANML or MNRL graph formats. An example using VASim to generate a blif file after optimizing the automata and enforcing a fan-in of 8 is shown below.  
 
+```
 vasim -Ox --enforce-fanin 8 --blif example.anml
+```
 
 ## Spatial Automata Architecture Description
 Most of the difficulty of this project was learning VPR's architecture description format, and building a file that would approximate the Micron D480 Automata Processor. Please refer to the VTR/VPR GitHub or mailing lists for architecture description definition questions.
