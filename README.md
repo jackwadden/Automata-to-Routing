@@ -1,5 +1,5 @@
 # Automata to Routing
-Automata to Routing is an open-source toolchain to design and evaluate island style spatial automata processing architectures. ATR leverages three open-source tools 1) ANMLZoo, 2) VASim, and 3) VTR to accomplish this task.
+Automata to Routing is an open-source toolchain to design and evaluate island style spatial automata processing architectures. ATR leverages three open-source tools 1) [ANMLZoo](https://github.com/jackwadden/ANMLZoo), 2) [VASim](https://github.com/jackwadden/VASim), and 3) [VTR](https://github.com/verilog-to-routing/vtr-verilog-to-routing) to accomplish this task.
 
 ## Usage
 ATR is run by running vpr using an automata circuit file on a valid spatial automata architecture description file. An example script used to run experiments for the FCCM'17 paper is in scripts/run_all.sh.
@@ -22,6 +22,18 @@ Automata-to-Routing left many interesting questions unanswered. If you are a res
 - Add timing/power/area modeling.
 - Add functionality for .blif emission and architecture support for boolean logic and counter elements available in the ANML specification.
 - Experiment with VPR command line parameters to get closer to the performance of Micron's compiler.
+
+## Citing ATR
+Please cite the FCCM'17 paper if you use ATR in your work.
+
+```bibtex
+@inproceedings{ATR,  
+  title={{Automata-to-Routing: An Open Source Toolchain for Design-Space Exploration of Spatial Automata Processing Architectures}},  
+  author={Wadden, Jack and Khan, Samira and Skadron, Kevin},  
+  booktitle={Proceedings of the IEEE International Symposium on Field-Programmable Custom Computing Machines (FCCM)},  
+  year={2017}  
+}
+```
 
 ## LICENSE
 The license of the architecture description file and script is BSD 3-clause. Because each .blif file is derived from an ANML file in the ANMLZoo benchmark suite. Each .blif file retains the license available in each benchmark directory at https://github.com/jackwadden/ANMLZoo. Note that the ANMLZoo benchmark suite is subject to change. These files are only kept to support those attempting to compare to the original FCCM paper without the need for VASim, and are not meant to be updated as ANMLZoo evolves.
