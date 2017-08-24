@@ -7,7 +7,7 @@ ATR is run by running vpr using an automata circuit file on a valid spatial auto
 A simple example using the current mandatory flags is shown below:  
 
 ```
-vpr --allow_unrelated_clustering off --sweep_dangling_blocks off --timing analysis off d480.xml example.blif
+vpr --allow_unrelated_clustering off --sweep_dangling_blocks off --timing_analysis off d480.xml <blif_file>.blif
 ```
 
 ## Blif Emission
