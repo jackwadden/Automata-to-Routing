@@ -22,9 +22,9 @@ Most of the difficulty of this project was learning VPR's architecture descripti
 
 Note that architectures and .blif files must be co-designed. You may need to modify VASim, or build your own .blif generation tool to be useful with your own architecture.
 
-The original architecture description file used to generate results for the FCCM'17 paper (archs/d480_8row_fccm17.xml) is presented. We used this file with VPR 8.0.0-dev+6e709d2.
+The original architecture description file used to generate results for the FCCM'17 paper (./archs/d480_8row_fccm17.xml) is presented. We used this file with VPR 8.0.0-dev+6e709d2.
 
-archs/d480_8row.xml is maintained to be compatible with the current development trunk of vpr.
+./archs/d480.xml is maintained to be compatible with the current development trunk of vpr.
 
 ## TODO
 Automata-to-Routing left many interesting questions unanswered. If you are a researcher interested in augmenting ATR or evaluating your own spatial automata processing architecture. This tool is for you!
