@@ -47,3 +47,6 @@ Please cite the FCCM'17 paper if you use ATR in your work.
 
 ## LICENSE
 The license of the architecture description file and script is BSD 3-clause. Because each .blif file is derived from an ANML file in the ANMLZoo benchmark suite. Each .blif file retains the license available in each benchmark directory at https://github.com/jackwadden/ANMLZoo. Note that the ANMLZoo benchmark suite is subject to change. These files are only kept to support those attempting to compare to the original FCCM paper without the need for VASim, and are not meant to be updated as ANMLZoo evolves.
+
+## Acknowledgements
+This work was started at the University of Virginia and was supported by the following organizations at some point in time: The ARCS Foundation, the National Science Foundation (EF-1124931), Micron Technologies, and the Center for Future Architectures Research (C-FAR), one of the six centers of STARnet, a Semiconductor Research Corporation program sponsored by MARCO and Darpa.
