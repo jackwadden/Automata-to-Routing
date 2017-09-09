@@ -28,11 +28,13 @@
 
   </models>
 
-  <!-- LAYOUT -->
-  <layout>
+  <layout>  
     <auto_layout aspect_ratio= "1.0">
+
       <perimeter type="io" priority="10"/>
+
       <fill type="row" priority="1"/>
+
     </auto_layout>
   </layout>
 
@@ -43,6 +45,7 @@
     <area grid_logic_tile_area="14813.392"/>
     <!--  area is for soft logic only  -->
     <chan_width_distr>
+      <!-- <io width="1"/> -->
       <x distr="uniform" peak="1.000000"/>
       <y distr="uniform" peak="1.000000"/>
     </chan_width_distr>
@@ -374,7 +377,8 @@
 
     </pb_type>
 
+
+
   </complexblocklist>
 
 </architecture>
-
