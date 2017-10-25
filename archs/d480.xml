@@ -30,16 +30,22 @@
 
   <!-- LAYOUT -->
   <layout>
+    <!--    
+    <fixed_layout name="big_fixed" width="96" height="64">
+      <perimeter type="io" priority="10"/>
+      <fill type="row" priority="1"/>
+    </fixed_layout>
+    -->  
     <auto_layout aspect_ratio= "1.0">
       <perimeter type="io" priority="10"/>
       <fill type="row" priority="1"/>
     </auto_layout>
+
   </layout>
 
   <!--  DEVICE  -->
   <device>
-    <sizing R_minW_nmos="6065.520020" R_minW_pmos="18138.500000" ipin_mux_trans_size="1.222260"/>
-    <timing C_ipin_cblock="0.000000e+00" T_ipin_cblock="7.247000e-11"/>
+    <sizing R_minW_nmos="6065.520020" R_minW_pmos="18138.500000"/>
     <area grid_logic_tile_area="14813.392"/>
     <!--  area is for soft logic only  -->
     <chan_width_distr>
@@ -47,6 +53,7 @@
       <y distr="uniform" peak="1.000000"/>
     </chan_width_distr>
     <switch_block type="wilton" fs="3"/>
+    <connection_block input_switch_name="0"/>
   </device>
 
   <!--  SWITCHLIST  -->
@@ -102,11 +109,11 @@
 
     <!--  ROW  -->
     <pb_type name="row" >
-      
+
       <input name="inputs" num_pins="8"/>
       <output name="outputs" num_pins="8"/>
       <clock name="clock" num_pins="1" port_class="clock"/>
-      
+
       <!-- GoT -->
       <pb_type name="got" num_pb="8">
         <input name="enable0" num_pins="16"/>
@@ -115,41 +122,41 @@
         <clock name="clock" num_pins="1" port_class="clock"/>
 
         <!-- GROUP OF TWO MODE WITH OR GATE -->
-        <mode name="GoT_w_OR">      
+        <mode name="GoT_w_OR">
 
           <!--  OR_GATE  -->
           <pb_type name="or_gate" blif_model=".subckt or_gate" num_pb="1">
             <input name="enable" num_pins="32" equivalent="true"/>
             <output name="active" num_pins="1"/>
             <clock name="clock" num_pins="1" port_class="clock"/>
-          </pb_type>        
-          
+          </pb_type>
+
           <!--  INTERCONNECT  -->
           <interconnect>
-                        
+
             <!-- OR GoT can take input from any input enable -->
             <direct name="enable0" input="got.enable0" output="or_gate.enable[0:15]"/>
             <direct name="enable1" input="got.enable1" output="or_gate.enable[16:31]"/>
-            
+
             <!-- clock -->
             <direct name="clock2" input="got.clock" output="or_gate.clock"/>
 
             <!-- output-->
             <direct name="direct_output" input="or_gate.active" output="got.active"/>
-            
+
           </interconnect>
         </mode>
 
 
         <!-- GROUP OF TWO MODE TWO STES -->
-        <mode name="two_stes">      
+        <mode name="two_stes">
           <!--  STE  -->
           <pb_type name="ste" blif_model=".subckt ste" num_pb="2">
             <input name="enable" num_pins="16" equivalent="true"/>
             <output name="active" num_pins="1"/>
             <clock name="clock" num_pins="1" port_class="clock"/>
           </pb_type>
-          
+
           <!--  INTERCONNECT  -->
           <interconnect>
             <!-- left STE can take input from external or internal source -->
@@ -169,7 +176,7 @@
             <mux name="left_chain13" input="ste[1].active got.enable0[13:13]" output="ste[0].enable[13]"/>
             <mux name="left_chain14" input="ste[1].active got.enable0[14:14]" output="ste[0].enable[14]"/>
             <mux name="left_chain15" input="ste[1].active got.enable0[15:15]" output="ste[0].enable[15]"/>
-            
+
             <!-- right STE can take input from external or internal source -->
             <mux name="right_chain0" input="ste[0].active got.enable1[0:0]" output="ste[1].enable[0]"/>
             <mux name="right_chain1" input="ste[0].active got.enable1[1:1]" output="ste[1].enable[1]"/>
@@ -187,14 +194,14 @@
             <mux name="right_chain13" input="ste[0].active got.enable1[13:13]" output="ste[1].enable[13]"/>
             <mux name="right_chain14" input="ste[0].active got.enable1[14:14]" output="ste[1].enable[14]"/>
             <mux name="right_chain15" input="ste[0].active got.enable1[15:15]" output="ste[1].enable[15]"/>
-            
+
             <!-- clock -->
             <direct name="clock0" input="got.clock" output="ste[0].clock"/>
             <direct name="clock1" input="got.clock" output="ste[1].clock"/>
-            
+
             <!-- output mux -->
             <mux name="muxed_output" input="ste[0].active ste[1].active" output="got.active"/>
-            
+
           </interconnect>
         </mode>
 
@@ -352,7 +359,7 @@
         <direct name="active5" input="got[5].active" output="row.outputs[5]"/>
         <direct name="active6" input="got[6].active" output="row.outputs[6]"/>
         <direct name="active7" input="got[7].active" output="row.outputs[7]"/>
-        -->      
+        -->
         <!-- clock -->
         <direct name="clock0" input="row.clock" output="got[0].clock"/>
         <direct name="clock1" input="row.clock" output="got[1].clock"/>
@@ -366,7 +373,7 @@
 
       <!--  FC  -->
       <fc default_in_type="frac" default_in_val="0.50" default_out_type="frac" default_out_val="0.50">
-        
+
       </fc>
 
       <!--  PIN LOCS  -->
@@ -377,4 +384,3 @@
   </complexblocklist>
 
 </architecture>
-
